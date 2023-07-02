@@ -76,26 +76,30 @@ void *consumidor(void *arg) {
      }
      return NULL;
 }
+void *renas(void *arg){
+    int numero;
+    numero = randomico();
+    int i=0;
+    pthread_mutex_lock(&mutex);
+    while(i<=9)//contando até o 9 mas em instantes de tempo diferentes.
+        {
+              printf("Rena %d chegando \n",i);
+              i++;
+        }
+        printf("Renas amarradas \n");
+        printf("acabou o natal\n");
+     pthread_mutex_unlock(&mutex);
 
+}
 
 int main(void) {
-    pthread_t prod,consu;
+    pthread_t prod,consu, renas;
     pthread_create(&prod, NULL, produtor, NULL);
     pthread_create(&consu, NULL, consumidor, NULL);
+    pthread_create(&renas, NULL, consumidor, NULL);
     pthread_join(prod,NULL);
     pthread_join(consu,NULL);
-    printf("Rena chegando !");
-    int numero;
-    int i=0;
-    numero = randomico();
-    while(i<=9);//contando até o 9 mas em instantes de tempo diferentes.
-    {
-          if(numero<5){
-               printf("Rena chegando !");
-               i++;
-          }
-
-    }
+    pthread_join(renas,NULL);
 
     return 0;
 }
