@@ -1,5 +1,5 @@
 # SantaClausProblem
-
+- Utilizando mutex e variavéis de condição.
 ## Descrição do Problema
 O problema envolve o Papai Noel, nove renas e dez elfos, e se desenrola da seguinte maneira:
 - Papai Noel: Ele dorme até ser acordado por todas as nove renas que voltam de suas férias tropicais ou por três elfos que têm perguntas urgentes.
