@@ -39,15 +39,13 @@ void* thread_elfo(void* arg) {
 
 // Thread das renas
 void* thread_rena(void* arg) {
-    int id_rena = *((int*)arg); // Identifica cada nova rena
-    free(arg); // Libera a memória alocada para o ID da rena
 
     while (1) {
         sleep(rand() % 10);  // Tempo randômico para a rena chegar
 
         pthread_mutex_lock(&mutex);
         contador_renas++;
-        printf("Rena %d chegou\n", id_rena); // Cada rena identificada, o contador acrescenta 1 e printa sua chegada
+        printf("Rena %d chegou\n", contador_renas); // Cada rena identificada, o contador acrescenta 1 e printa sua chegada
 
         if (contador_renas == MAX_RENAS) {
             printf("Papai Noel já entregou todos os presentes desse Natal!\n");
